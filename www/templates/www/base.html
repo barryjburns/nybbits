@@ -1,0 +1,58 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ site_caption }} - {{ page_caption }}</title>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+  </head>
+  <body>
+    <div id="header">
+      {% if request.user.is_authenticated %}
+      <a href="/admin/">Admin</a>
+      {% endif %}
+      {% comment %}
+      {% for page in pages %}
+      <a href="/{{ page.name }}">{{ page.caption }}</a>
+      {% endfor %}
+      {% endcomment %}
+    </div>
+
+    <div id="content">
+      <h1>{{ site_caption }} - {{ page_caption }}</h1>
+
+      {% block content %}
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget diam leo. Cras non metus arcu. Cras sed semper mauris. Praesent eleifend nisl luctus, cursus erat id, tincidunt magna. Etiam semper, nibh in ullamcorper porttitor, diam dolor accumsan ligula, vel molestie nisl tellus quis nisi. Nullam at tristique velit. Phasellus laoreet, leo nec posuere elementum, est neque volutpat lorem, ac vestibulum velit lacus eu odio. Proin eu arcu fermentum, imperdiet nulla eget, ornare velit. Integer sit amet magna ultricies, faucibus massa nec, porta metus. Curabitur a suscipit ligula. Quisque in diam nec ex congue mattis in sed quam. Nunc bibendum nunc ex, vitae posuere eros lobortis vel.
+</p>
+<p>
+Integer pharetra ipsum magna, et rutrum ligula semper ac. Mauris nec fringilla mi, at dignissim tortor. Nullam in tortor varius, gravida nibh eu, interdum mi. Nullam cursus vulputate ipsum, quis consequat leo rutrum vel. Duis posuere purus augue, nec imperdiet elit ultrices non. Nunc sit amet aliquet justo. Integer nisi dolor, viverra at ullamcorper vitae, ultrices sed lacus. Aenean lacinia nunc massa, et interdum mauris blandit feugiat. Nulla id ligula molestie, porttitor tellus eget, dapibus nulla. Nunc nunc augue, semper id consectetur et, tincidunt vel magna. Etiam nisi quam, interdum sed dui vel, ultricies porttitor lectus. Praesent vel massa in nisi interdum accumsan sed ultricies quam.
+</p>
+<p>
+In condimentum pretium felis, eget lobortis ante porttitor quis. In ultrices scelerisque sapien quis congue. Donec laoreet nunc nec ligula vulputate, sed vulputate nunc elementum. Fusce accumsan, justo sed accumsan cursus, est nunc eleifend dui, at laoreet elit erat luctus neque. Nulla facilisi. In hac habitasse platea dictumst. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+</p>
+<p>
+Donec ullamcorper dictum orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor, lacus nec mollis mattis, justo magna placerat est, id ullamcorper elit dolor quis purus. Aenean nunc ligula, pharetra sagittis aliquet ut, malesuada non sem. Sed vitae sodales mi. Suspendisse potenti. Cras porttitor mauris ac diam hendrerit, vitae porttitor mi pretium. Integer ullamcorper auctor bibendum.
+</p>
+<p>
+Donec et ante vulputate, pretium ligula a, maximus mi. Pellentesque feugiat ante vel interdum tempor. Nullam eu quam dui. Nunc maximus ipsum nunc, eu euismod nunc consectetur quis. Morbi consectetur id turpis ac elementum. Quisque in libero volutpat, convallis magna eget, rhoncus nunc. Nulla facilisi. Morbi consectetur, mi ac elementum convallis, augue justo fermentum mauris, a blandit arcu ex sit amet mi. Pellentesque neque elit, egestas vel dictum nec, iaculis a enim. Integer a sapien felis. Cras in mi nibh.
+</p>
+      {% endblock %}
+    </div>
+
+    <div id="sidebar">
+    {% for link in sidebar %}
+    {% if link.url == page_url %}
+      <a href="{{ link.url }}" class="current">{{ link.caption }}</a>
+    {% else %}
+      <a href="{{ link.url }}">{{ link.caption }}</a>
+    {% endif %}
+    {% endfor %}
+    </div>
+
+    <div id="footer">
+      Content and design &copy; 2016 Nybbles and Bits Co.
+    </div>
+  </body>
+</html>
