@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "unifont";
+  font-weight: normal;
+  font-style: normal;
+  src: local("unifont"),
+    url("unifont.ttf" format('truetype'),
+    url("unifont.eot" format('embedded-opentype'),
+    url("unifont.woff" format('woff'),
+    url("unifont.woff2" format('woff2'),
+    url("unifont.svg#unifont" format('svg');
+}
