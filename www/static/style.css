@@ -1,10 +1,13 @@
-@import url("/static/animate.css/animate.min.css");
+@import url("animate.css/animate.min.css");
 @import url("//fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic&subset=latin,latin-ext");
 
 * {
   font-family: 'Open Sans', sans-serif;
-  background-image: url("/static/diag2.png");
   background-attachment: fixed;
+}
+
+body {
+  background-image: url("diag2.png");
 }
 
 @import url("fonts/Sawasdee.css");
@@ -17,6 +20,7 @@
   text-shadow: 0 0 5px #000;
   letter-spacing: 8px;
   color: white;
+  text-transform: lowercase;
 }
 
 .nybbits-logo {
@@ -25,11 +29,13 @@
   letter-spacing: 8px;
   color: white;
   font-size: 32px;
+  text-transform: lowercase;
+  background-color: #4a66a0;
 }
 
 h1 {
   background-color: #4a66a0;
-  background-image: url("/static/diag.png");
+  background-image: url("diag.png");
   background-repeat: repeat;
   background-attachment: fixed;
   color: #ffffff;
@@ -58,12 +64,12 @@ div#header {
   top: 0px;
   right: 0px;
   height: 64px;
-  background-image: url("/static/logo-116x56.png");
+  background-image: url("logo-116x56.png");
   background-position: 8px center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   display: table-row;
-  padding-left: 148px;
+  /*padding-left: 148px;*/
   background-color: #d9f0ff;
   box-shadow: 0px 0px 10px 1px #000000;
 }
@@ -125,7 +131,7 @@ div#sidebar a {
 }
 
 div#sidebar a:hover {
-  background-image: url("/static/diag.png");
+  background-image: url("diag.png");
   color: #ffffff;
   text-shadow: 0 0 3px #000000;
 }

@@ -10,7 +10,7 @@ def render_page(request, name):
   namespace = {}
   namespace['page_url'] = '/' + name
   namespace['pages'] = Page.objects.filter(position__isnull = False).order_by('position')
-  namespace['site_caption'] = 'Nybbles & Bits'
+  namespace['site_caption'] = 'Nybbits'
   namespace['sidebar'] = Sidebar.objects.order_by('position')
   namespace['request'] = request
 

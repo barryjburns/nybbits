@@ -9,6 +9,7 @@
   </head>
   <body>
     <div id="header">
+      <div class="nybbits-logo"$>{{ site_caption }}</div>
       {% if request.user.is_authenticated %}
       <a href="/admin/">Admin</a>
       {% endif %}
@@ -20,7 +21,7 @@
     </div>
 
     <div id="content">
-      <h1>{{ site_caption }} - {{ page_caption }}</h1>
+      <h1>{{ page_caption }}</h1>
 
       {% block content %}
 <p>
