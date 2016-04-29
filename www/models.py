@@ -20,6 +20,6 @@ class Page(models.Model):
 class Sidebar(models.Model):
   caption = models.CharField(max_length = 255, blank = False, null = False, unique = False)
   position = models.IntegerField(null = False, default = 0)
-  url = models.URLField(null = False)
+  url = models.CharField(max_length = 255, null = False)
 
   def __str__(self): return '%s -> %s' % (self.caption, self.url)
