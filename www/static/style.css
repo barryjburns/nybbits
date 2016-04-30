@@ -1,11 +1,6 @@
-@import url("animate.css/animate.min.css");
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic&subset=latin,latin-ext);
-/*
-@import url("fonts/Architex.css");
-@import url("NotoColorEmoji.css");
-@import url("fonts/Sawasdee.css");
-*/
 @import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic&subset=latin,latin-ext");
 
 * {
   font-family: 'Open Sans', sans-serif;
@@ -21,9 +16,8 @@
 }
 
 body {
-  background-image: url("diag2.png");
+  background-image: url("diag4.png");
 }
-
 
 /* 4A66A0 */
 
@@ -34,7 +28,7 @@ body {
   color: white;
   font-size: 32px;
   text-transform: lowercase;
-  background-color: #4a66a0;
+  /*background-color: rgba(74, 102, 160, 0.8);*/
 }
 
 h1 {
@@ -74,7 +68,8 @@ header {
   background-attachment: fixed;
   display: table-row;
   /*padding-left: 148px;*/
-  background-color: #d9f0ff;
+  /*background-color: #d9f0ff;*/
+  background-color: rgba(74, 102, 160, 0.8);
   box-shadow: 0px 0px 10px 1px #000;
 }
 
@@ -115,7 +110,9 @@ footer {
   font-size: 80%;
   text-align: right;
   font-face: 'Indie Flower', cursive;
-  background-color: #d9f0ff;
+  font-style: italic;
+  /*background-color: #d9f0ff;*/
+  background-color: rgba(74, 102, 160, 1);
   box-shadow: 0 0 10px 1px #000000;
 }
 
@@ -128,7 +125,7 @@ nav {
   width: 12em;
   margin-left: 1em;
   margin-right: 2em;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
   z-index: -1;
   box-shadow: 0 0 10px 1px #000000;
 }
@@ -152,6 +149,8 @@ nav a.current {
   background-color: #6b93e7;
   color: #f0f0f0;
   text-shadow: 0 0 3px #000000;
+  animation-duration: .75s;
+  animation-name: jello;
 }
 
 div#content {
