@@ -17,3 +17,5 @@ all:	$(CSS)
 
 %.css:	%.woff %.svg %.woff2 %.eot %.ttf
 	./mkfontcss.sh $* > $@
+
+.PRECIOUS:	%.woff %.svg %.woff2 %.eot
