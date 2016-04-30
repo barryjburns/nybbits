@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{% static 'style.min.css' %}">
   </head>
   <body>
-    <div id="header">
+    <header>
       <div class="nybbits-logo animated bounceIn" style="font-family: 'Open Sans';">{{ site_caption }}</div>
       {% if request.user.is_authenticated %}
       <a href="/admin/">Admin</a>
@@ -41,7 +41,7 @@ Donec et ante vulputate, pretium ligula a, maximus mi. Pellentesque feugiat ante
       {% endblock %}
     </div>
 
-    <div id="sidebar">
+    <nav>
     {% for link in sidebar %}
     {% if link.url == page_url %}
       <a href="{{ link.url }}" class="current">{{ link.caption }}</a>
@@ -49,10 +49,10 @@ Donec et ante vulputate, pretium ligula a, maximus mi. Pellentesque feugiat ante
       <a href="{{ link.url }}">{{ link.caption }}</a>
     {% endif %}
     {% endfor %}
-    </div>
+    </nav>
 
-    <div id="footer">
+    <footer>
       Content and design &copy; 2016 Nybbles and Bits Co.
-    </div>
+    </footer>
   </body>
 </html>
