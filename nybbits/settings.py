@@ -79,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'nybbits',
-	'USER': 'www-data',
+	'USER': os.environ['USER'],
 	'PASSWORD': '',
 	'HOST': '',
 	'PORT': ''
