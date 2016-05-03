@@ -1,10 +1,12 @@
-{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+  {% load staticfiles %}
   <head>
     <meta charset="utf-8">
     <title>{{ site_caption }} - {{ page_caption }}</title>
     <link rel="stylesheet" href="{% static 'style.min.css' %}">
+    <script type="text/javascript"
+      src="//media.twiliocdn.com/sdk/js/client/v1.3/twilio.min.js"></script>
   </head>
   <body>
     <header>
@@ -17,9 +19,9 @@
       <a href="/{{ page.name }}">{{ page.caption }}</a>
       {% endfor %}
       {% endcomment %}
-    </div>
+    </header>
 
-    <div id="content">
+    <main>
       <h1>{{ page_caption }}</h1>
 
       {% block content %}
@@ -39,7 +41,7 @@ Donec ullamcorper dictum orci. Lorem ipsum dolor sit amet, consectetur adipiscin
 Donec et ante vulputate, pretium ligula a, maximus mi. Pellentesque feugiat ante vel interdum tempor. Nullam eu quam dui. Nunc maximus ipsum nunc, eu euismod nunc consectetur quis. Morbi consectetur id turpis ac elementum. Quisque in libero volutpat, convallis magna eget, rhoncus nunc. Nulla facilisi. Morbi consectetur, mi ac elementum convallis, augue justo fermentum mauris, a blandit arcu ex sit amet mi. Pellentesque neque elit, egestas vel dictum nec, iaculis a enim. Integer a sapien felis. Cras in mi nibh.
 </p>
       {% endblock %}
-    </div>
+    </main>
 
     <nav>
     {% for link in sidebar %}
