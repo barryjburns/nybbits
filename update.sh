@@ -1,5 +1,9 @@
 #!/bin/bash
 
-git pull
-python3 manage.py collectstatic
+git pull;
+pushd .;
+cd www/static;
+./prep.sh;
+popd;
+python3 manage.py collectstatic;
 

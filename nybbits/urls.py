@@ -17,10 +17,19 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic import RedirectView
 
-from www.views import render_page
+#from www.views import render_page
+#from twilio.views import inbound
+#from twilio.views import inbound, callback
+
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', RedirectView.as_view(url = '/home', permanent = True)),
-    url(r'^([a-zA-Z0-9_-]+)$', render_page),
 ]
+#    url(r'^$', RedirectView.as_view(url = '/home', permanent = True)),
+#    url(r'^([a-zA-Z0-9_-]+)$', render_page),
+#    url(r'^twilio/inbound$', inbound),
+#    url(r'^twilio/callback$', callback),
+
+# a message comes in (inbound) -> https://demo.twilio.com/welcome/sms/reply/
+# primary handler fails -> http://www.nybbits.com/nybbits/fail
+

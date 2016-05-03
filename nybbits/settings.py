@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'www',
+    'twilio',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -79,7 +80,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'nybbits',
-	'USER': os.environ['USER'],
+	'USER': 'www-data',
 	'PASSWORD': '',
 	'HOST': '',
 	'PORT': ''

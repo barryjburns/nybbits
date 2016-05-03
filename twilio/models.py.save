@@ -1,0 +1,133 @@
+from django.db import models
+from uuid import uuid4
+
+
+# Create your models here.
+
+# See: https://www.twilio.com/docs/api/twiml/twilio_request
+
+XML_DECL = '''<?xml version="1.0" ?>\n'''
+MAIN_CONTENT_TYPE = 'text/xml'
+
+CALL_STATUS_VALUES = [
+  ('queued',		'The call is ready and waiting in line before going out.'),
+  ('ringing',		'The call is currently ringing.'),
+  ('in-progress',	'The call was answered and is currently in progress.'),
+  ('completed',		'The call was answered and has ended normally.'),
+  ('busy',		'The caller received a busy signal.'),
+  ('failed',		'The call could not be completed as dialed, most likely because the phone number was non-existent.'),
+  ('no-answer',		'The call ended without being answered.'),
+  ('canceled',		'The call was canceled via the REST API while queued or ringing.'),
+]
+
+class Call(Models.model):
+  uuid = models.UUIDField(null = False, blank = False, default = uuid.uuid4, editable = False)
+  call_sid = models.CharField(max_length = 255, null = False, blank = False, editable = False)
+  acct_sid = models.CharField(max_length = 255, null = False, blank = False, editable = False)
+  sender = models.CharField(max_length = 255, null = False, blank = False)
+  recipient = models.TextField(null = False, blank = False)
+  created = models.DateTimeField(auto_now_add = True)
+  modified = models.DateTimeField(auto_now = True)
+  deleted = models.DateTimeField(null = True, blank = True, default = None)
+  call_status = models.CharField(choices = CALLS_STATUS_VALUE
+  api_version = 
+  direction
+  forwarded_from
+
+  caller_name
+
+  from_city
+  from_state
+  from_zip
+  from_country
+
+  to_city
+  to_state
+  to_zip
+  to_country
+  
+  
+''' Much of this deserves no better than Davy Jones' locker """
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MEDIUM_CHOICES = [
+  ('ip-xmpp', 'XMPP (Jabber)'),
+  ('ss7-sms', 'SMS (Text message)'),
+  ('ss7-mms', 'MMS (Multimedia message)'),
+  ('sip-audio-call', 'Audio call'),
+  ('sip-video-call', 'Video call'),
+  ('sip-message', 'SIP/SIMPLE message'),
+  ('email', 'E-mail message'),
+  ('fb', 'Facebook message'),
+  ('tweet', 'Twitter message'),
+  ('irc', 'IRC message'),
+  ('nntp', 'NNTP USENET post'),
+]
+
+class ContactMethod(models.Model):
+  class Meta:
+    get_latest_by = 'created'
+    order_with_respect_to = 'Identity'
+    
+
+  address = models.CharField(null = False, blank = False, unique = True, db_index = True)
+  medium = models.CharField(null = False, blank = False, choices = MEDIUM_CHOICES, default = 'sms')
+  identity = models.ForeignKey('Identity')
+  priority = models.IntegerKey(null = False, blank = False, default = 0)
+  created = models.DateTimeField(auto_now_add = True, blank = False, null = False)
+  modified = models.DateTimeField(auto_now = True, blank = False, null = False)
+  deleted = models.DateTimeField(auto_now = False, blank = True, null = True, default = None)
+
+class Identity(models.Model):
+  uuid = models.UUIDField(null = False, blank = False, default = uuid.uuid4, editable = False)
+  name = models.CharField(null = True, blank = True, default = None)
+
+class Message(models.Model):
+  uuid = models.UUIDField(null = False, blank = False, default = uuid.uuid4, editable = False)
+  sender = models.ForeignKey('ContactMethod')
+  recipient = models.ForeignKey('ContactMethod')
+  message = TextMessage()
+  seen = models.DateTimeField(default = '', blank = True, null = False)
+
+class Endpoint(models.Model):
+  uuid = models.UUIDField(null = False, blank = False, default = uuid.uuid4, editable = False)
+    
+
+
+
+
+
+
+
+class Acct(models.Model):
+  acct_sid = models.CharField(max_length = 255, primary_key = True, unique = True, db_index = True, null = False, blank = False, editable = False)
+  
+
+  def __str__(self): return '[%s.%s: acct_sid = %s]' % (self._meta.app_label, self._meta.object_name, self.acct_sid)
+
+class Senders(models.Model):
+  uuid = models.UUIDField(null = False, blank = False, default = uuid.uuid4, editable = False)
+  call = ForeignKey('Call', null = False, blank = False, primary_key = True, db_index = True)
+
+class Call(models.Model):
+  call_sid = models.CharField(max_length = 255, primary_key = True, unique = True, db_index = True, null = False, blank = False, editable = False)
+  acct_sid = models.ForeignKey('Acct', null = False, blank = False, editable = False)
+  sender = models.ManyToManyField('Identity', null = False, blank = False, on_delete = models.PROTECT, 
+    related_name = 'calls_sent', through = 'Senders', through_fields = ('call )
+  recipient = models.ForeignKey('Identity', null = False, on_delete = models.PROTECT, related_name = 'calls_received')
