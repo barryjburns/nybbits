@@ -9,50 +9,33 @@ import traceback, re
 
 from .models import TwilioMessage
 
-SMS_HELP_MESSAGE = '''Reply CALL to get a call back, JOIN to opt in to offers and information, STOP to opt out'''
-
 def parse_incoming(request):
-  message = TwilioMessage()
-  fields = [
-    ('ToCountry', 'to_country'),
-    ('ToState', 'to_state'),
-    ('SmsMessageSid', 'sms_message_sid'),
-    ('NumMedia', 'num_media'),
-    ('ToCity', 'to_city'),
-    ('FromZip', 'from_zip'),
-    ('SmsSid', 'sms_sid'),
-    ('FromState', 'from_state'),
-    ('SmsStatus', 'sms_status'),
-    ('FromCity', 'from_city'),
-    ('Body', 'body'),
-    ('FromCountry', 'from_country'),
-    ('To', 'to_e164'),
-    ('MessagingServiceSid', 'messaging_service_sid'),
-    ('ToZip', 'to_zip'),
-    ('NumSegments', 'num_segments'),
-    ('MessageSid', 'message_sid'),
-    ('AccountSid', 'account_sid'),
-    ('From', 'from_e164'),
-    ('ApiVersion', 'api_version'),
-  ]
+  TwilioMessage(
+    to_country = request.POST['ToCountry'],
+    to_state = request.POST['ToState'],
+    sms_message_sid = request.POST['SmsMessageSid'],
+    num_media = request.POST['NumMedia'],
+    to_city = request.POST['ToCity'],
+    from_zip = request.POST['FromZip'],
+    sms_sid = request.POST['SmsSid'],
+    from_state = request.POST['FromState'],
+    sms_status = request.POST['SmsStatus'],
+    from_city = request.POST['FromCity'],
+    body = request.POST['Body'],
+    to_e164  = request.POST['To'],
+    messaging_service_sid  = request.POST['MessagingServiceSid'],
+    to_zip  = request.POST['ToZip'],
+    num_segments  = request.POST['NumSegments'],
+    message_sid  = request.POST['MessageSid'],
+    account_sid  = request.POST['AccountSid'],
+    from_e164  = request.POST['From'],
+    api_version  = request.POST['ApiVersion']
+  ).save()
 
-  for post_var, model_field in fields:
-    if post_var in request:
-      setattr(message, model_field, request['post_var'])
-
-  message.save()
-
-  return HttpResponse('Thank you! :-) You will receive a call back shortly.', content_type = 'text/plain')
+  response = 'Thank you for contacting Nybbits! :-) You will receive a call back shortly from the on-call technician.'
+  return HttpResponse(response, content_type = 'text/plain')
 
 @csrf_exempt
 def inbound(request):
-  return parse_incoming(request)
-
-
-"""
-
-  try:
-    return parse(request)
-  except:
-    return HttpResponse(traceback.format_exc(), content_type = 'text/plain')
-"""
+  try: return parse_incoming(request)
+  except: return HttpResponse(traceback.format_exc(), content_type = 'text/plain')

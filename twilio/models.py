@@ -26,7 +26,7 @@ _int = lambda: models.IntegerField(default = None, null = True)
 e164_re = re.compile(r'\+1([2-9]\d\d)([2-9]\d\d)(\d{4})')
 
 def fmt_e164(n):
-  m = e164.match(n)
+  m = e164_re.match(n)
   if m is None: return n
   else: return '(%s) %s-%s' % m.groups()
 
@@ -35,6 +35,15 @@ class Pair(models.Model):
   value = _string()
 
   def __str__(self): return '%s = %r' % (self.name, self.value)
+
+  @classmethod
+  def get_value(cls, name): return cls.objects.get(name = name).value
+
+  @classmethod
+  def set_value(cls, name, value):
+    o = cls.objects.get(name = name)
+    o.value = value
+    o.save()
 
 class Message(models.Model):
   uuid = _uuid()
@@ -48,7 +57,7 @@ class Message(models.Model):
   from_ep = models.ForeignKey('EndPoint', related_name = 'received_message_set')
   content = models.TextField(blank = True, null = False, default = '')
   media_url = models.CharField(blank = True, null = True, default = None, max_length = 255)
-'''
+
 class TwilioMessage(models.Model):
   uuid = _uuid()
   created = _created()
@@ -76,7 +85,7 @@ class TwilioMessage(models.Model):
   api_version = models.DateField(default = None, null = True)
 
   def __str__(self): return '%s -> %s @ %s: %s' % (fmt_e164(self.from_e164), fmt_e164(self.to_e164), self.created, self.body[:160])
-'''
+
 class EndPoint(models.Model):
   modified = _modified()
   created = _created()

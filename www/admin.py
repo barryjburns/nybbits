@@ -5,3 +5,4 @@ from django.contrib import admin
 from .models import Page, Sidebar
 
 for model in Page, Sidebar: admin.site.register(model)
+

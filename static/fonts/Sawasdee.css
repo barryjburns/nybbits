@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "Sawasdee";
+  font-weight: normal;
+  font-style: normal;
+  src: local("Sawasdee"),
+    url("Sawasdee.ttf" format('truetype'),
+    url("Sawasdee.eot" format('embedded-opentype'),
+    url("Sawasdee.woff" format('woff'),
+    url("Sawasdee.woff2" format('woff2'),
+    url("Sawasdee.svg#Sawasdee" format('svg');
+}

@@ -1,10 +1,26 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.template import Template, Context
 
-from .models import Page, Sidebar
+from .models import Page, Sidebar, Ticket
+from django.template import RequestContext
 
 # Create your views here.
+
+def contact_submit(request):
+  try:
+    ticket = Ticket(
+      name = request.POST['name'],
+      email = request.POST['email'],
+      subject = request.POST['subject'],
+      body = request.POST['body']
+    )
+    ticket.save()
+    return HttpResponseRedirect('/contact-success')
+  except:
+    return HttpResponseRedirect('/contact-fail')
+
+     
 
 def render_page(request, name):
   namespace = {}
@@ -13,7 +29,6 @@ def render_page(request, name):
   namespace['site_caption'] = 'Nybbits'
   namespace['sidebar'] = Sidebar.objects.order_by('position')
   namespace['request'] = request
-
   response_class = HttpResponse
 
   try:
@@ -26,5 +41,6 @@ def render_page(request, name):
   namespace['page_name'] = name
 
   template = Template(page.content)
-  context = Context(namespace)
+  context = RequestContext(request)
+  context.update(namespace)
   return response_class(template.render(context))

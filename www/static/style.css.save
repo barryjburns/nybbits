@@ -1,0 +1,179 @@
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic&subset=latin,latin-ext);
+
+* {
+  font-family: 'Open Sans', sans-serif;
+  background-attachment: fixed;
+}
+
+.cursive {
+  font-family: 'Indie Flower', cursive;
+}
+
+.emoji {
+  font-family: 'Noto Color Emoji', sans-serif;
+}
+
+body {
+  background-image: url("diag4.png");
+}
+
+/* 4A66A0 */
+
+.nybbits-logo {
+  font-family: 'Sawasdee', sans-serif;
+  text-shadow: 0 0 5px #000;
+  letter-spacing: 8px;
+  color: white;
+  font-size: 32px;
+  text-transform: lowercase;
+  background-color: rgba(74, 102, 160, 0.8);
+}
+
+h1 {
+  background-color: #4a66a0;
+  background-image: url("diag.png");
+  background-repeat: repeat;
+  background-attachment: fixed;
+  color: #fff;
+  font-weight: bold;
+  padding: 4px;
+  font-size: 120%;
+  text-shadow: 0px 0px 3px #000;
+  background-attachment: fixed;
+  margin: 4px;
+  margin-bottom: 13px;
+  box-shadow: 0px 0px 4px 1px #000;
+}
+
+.logo {
+  letter-spacing: -10%;
+  font-size: 150%;
+}
+
+.logo span.amp {
+  font-size: 50%;
+}
+
+header {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  height: 64px;
+  /*background-image: url("logo-116x56.png");*/
+  background-position: 8px center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: table-row;
+  /*padding-left: 148px;*/
+  /*background-color: #d9f0ff;*/
+  background-color: rgba(74, 102, 160, 0.8);
+  box-shadow: 0px 0px 10px 1px #000;
+}
+
+header > * {
+  display: table-cell;
+  padding-left: 1em;
+  padding-right: 1em;
+  vertical-align: middle;
+  height: 64px;
+}
+
+div#slogan {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  font-size: 120%;
+    
+}
+
+a {
+  color: #6b93e7;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 0 0 0px #415a8d;
+}
+
+a:link:hover {
+  text-shadow: 0 0 6px #6b93e7;
+}
+
+footer {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  height: 1.5em;
+  padding: 4px;
+  font-size: 80%;
+  text-align: right;
+  font-face: 'Indie Flower', cursive;
+  font-style: italic;
+  /*background-color: #d9f0ff;*/
+  background-color: rgba(74, 102, 160, 1);
+  box-shadow: 0 0 10px 1px #000000;
+}
+
+nav {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  padding-top: 74px;
+  bottom: 1.5em;
+  width: 12em;
+  margin-left: 1em;
+  margin-right: 2em;
+  background-color: #ffffff;
+  z-index: -1;
+  box-shadow: 0 0 10px 1px #000000;
+}
+
+nav a {
+  display: block;
+  text-align: right;
+  font-size: 90%;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  padding-right: 1em;
+}
+
+nav a:hover {
+  background-image: url("diag.png");
+  color: #ffffff;
+  text-shadow: 0 0 3px #000000;
+}
+
+nav a.current {
+  background-color: #6b93e7;
+  color: #f0f0f0;
+  text-shadow: 0 0 3px #000000;
+  animation-duration: .75s;
+  animation-name: jello;
+}
+
+div#content {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 74px;
+  bottom: 1.5em;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-left: 16em;
+  margin-right: 1em;
+  overflow: auto;
+  font-size: 90%;
+}
+
+/* 2c3c5f */
+/* 4a66a0 */
+/* 415a8d */
+/* 6b93e7 */
+/* b6ceff */
+/* d9f0ff */
+/* b7c1d3 */
+/* b7c3db */
+/* d3d3d3 */
+
