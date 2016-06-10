@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+
+<h2><a href="/blog/{{ latest.slug }}" title="{{ latest.caption }}">{{ latest.caption }}</a></h1>
+{% if latest.published %}
+<h3>Published {{ latest.published }} by {{ latest.author.get_full_name }}</h2>
+{% else %}
+<h3>Draft; created {{ latest.created }} by {{ latest.author.get_full_name }}</h2>
+{% endif %}
+{{ latest.content|safe }}
+
+
+<table class="list" cellspacing="0">
+  <tr><th>Caption</th><th>Author</th><th>Published</th></tr>
+  {% for entry in entries %}
+  <tr><td><a href="/blog/{{ entry.slug }}">{{ entry.caption }}</a></td><td>{{ entry.author.get_full_name }}</td><td>{{ entry.published }}</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}
+

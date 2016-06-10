@@ -39,7 +39,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'www',
     'twilio',
+    'blog',
 )
+
+#    'social_auth',
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -80,8 +84,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'nybbits',
-	'USER': 'www-data',
-	'PASSWORD': '',
+	'USER': 'nybbits',
+	'PASSWORD': '34d9HluYQOKKbt2H',
 	'HOST': '',
 	'PORT': ''
     }

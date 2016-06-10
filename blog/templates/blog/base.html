@@ -13,11 +13,11 @@
 <!html lang="en-US" prefix="og: http://ogp.me/ns#">
 <!--<![endif]-->
   <head>
-    <meta property="og:title" content="Nybbits Co.">
+    <meta property="og:title" content="{{ site_caption }} - {{ page_caption }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="http://www.nybbits.com{{ page_url }}">
     <meta property="og:description" content="Chicagoland IT computer/phone/tablet repair service">
-    <meta property="og:site_name" content="Nybbits Co.">
+    <meta property="og:site_name" content="{{ site_caption }}">
     <meta property="og:locale" content="en_US">
     <meta charset="utf-8">
     <meta charset="UTF-8">
@@ -71,11 +71,6 @@
       {% if request.user.is_authenticated %}
       <a href="/admin/">Admin</a>
       {% endif %}
-      {% comment %}
-      {% for page in pages %}
-      <a href="/{{ page.name }}">{{ page.caption }}</a>
-      {% endfor %}
-      {% endcomment %}
     </header>
 
     <main>

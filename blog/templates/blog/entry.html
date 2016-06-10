@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+{% if entry.published %}
+<h2>Published {{ entry.published }} by {{ entry.author.get_full_name }}</h2>
+{% else %}
+<h2>Draft; created {{ entry.created }} by {{ entry.author.get_full_name }}</h2>
+{% endif %}
+{{ entry.content|safe }}
+{% endblock %}
